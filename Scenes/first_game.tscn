@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://baulol1x5eca"]
+
+[ext_resource type="Script" path="res://Scenes/fg_button.gd" id="1_laf8m"]
+[ext_resource type="Script" path="res://Scenes/fg_button_2.gd" id="2_6uuxx"]
+[ext_resource type="Texture2D" uid="uid://bwsbwm3mg1ei2" path="res://Assets/b-rh.png" id="3_e6baq"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 1149.0
+offset_bottom = 648.0
+color = Color(0.678431, 0.847059, 0.901961, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 311.0
+offset_top = 23.0
+offset_right = 771.0
+offset_bottom = 359.0
+text = "First Game - Touch Screen Controls
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="fg_button" type="Button" parent="."]
+offset_left = 849.0
+offset_top = 406.0
+offset_right = 1009.0
+offset_bottom = 462.0
+text = "Home"
+script = ExtResource("1_laf8m")
+
+[node name="fg_button2" type="Button" parent="."]
+offset_left = 851.0
+offset_top = 525.0
+offset_right = 1016.0
+offset_bottom = 580.0
+text = "Close"
+script = ExtResource("2_6uuxx")
+
+[node name="B-rh" type="Sprite2D" parent="."]
+position = Vector2(535, 413)
+scale = Vector2(0.356934, 0.302734)
+texture = ExtResource("3_e6baq")
+
+[connection signal="pressed" from="fg_button" to="fg_button" method="_on_pressed"]
+[connection signal="pressed" from="fg_button2" to="fg_button" method="_on_fg_button_2_pressed"]
+[connection signal="pressed" from="fg_button2" to="fg_button2" method="_on_pressed"]

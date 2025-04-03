@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5gwdrd48pirv"]
+
+[ext_resource type="Script" path="res://Scenes/return_home.gd" id="1_rap6j"]
+[ext_resource type="Script" path="res://Scenes/settings.gd" id="1_xc4b0"]
+[ext_resource type="Script" path="res://Scenes/audio_button.gd" id="3_5s2q3"]
+[ext_resource type="Script" path="res://Scenes/music_button.gd" id="4_anf0e"]
+[ext_resource type="Script" path="res://Scenes/language_button.gd" id="5_h4nr5"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_xc4b0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 1153.0
+offset_bottom = 650.0
+color = Color(0.678431, 0.847059, 0.901961, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(580, 320)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="Node"]
+offset_left = 457.0
+offset_top = 26.0
+offset_right = 672.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.0823529, 0, 0, 1)
+text = "Settings "
+horizontal_alignment = 1
+
+[node name="return_home" type="Button" parent="Node"]
+offset_left = 967.0
+offset_top = 14.0
+offset_right = 1139.0
+offset_bottom = 76.0
+text = "return home
+"
+script = ExtResource("1_rap6j")
+
+[node name="Audio_Button" type="CheckButton" parent="Node"]
+offset_left = 42.0
+offset_top = 107.0
+offset_right = 170.0
+offset_bottom = 165.0
+text = "Audio"
+script = ExtResource("3_5s2q3")
+
+[node name="Music_Button" type="CheckButton" parent="Node"]
+offset_left = 47.0
+offset_top = 193.0
+offset_right = 174.0
+offset_bottom = 236.0
+text = "Music
+"
+script = ExtResource("4_anf0e")
+
+[node name="Language_Button" type="OptionButton" parent="Node"]
+offset_left = 143.0
+offset_top = 293.0
+offset_right = 283.0
+offset_bottom = 324.0
+selected = 1
+item_count = 5
+popup/item_0/text = "English"
+popup/item_1/text = "Spanish"
+popup/item_1/id = 1
+popup/item_2/text = "Hatian/Creole"
+popup/item_2/id = 2
+popup/item_3/text = "Chinese"
+popup/item_3/id = 3
+popup/item_4/text = "French"
+popup/item_4/id = 4
+script = ExtResource("5_h4nr5")
+
+[node name="Label2" type="Label" parent="Node"]
+offset_left = 41.0
+offset_top = 294.0
+offset_right = 129.0
+offset_bottom = 319.0
+text = "Language"
+
+[connection signal="pressed" from="Node/return_home" to="Node/return_home" method="_on_pressed"]
+[connection signal="pressed" from="Node/Audio_Button" to="Node/Audio_Button" method="_on_pressed"]
+[connection signal="toggled" from="Node/Audio_Button" to="Node/Audio_Button" method="_on_toggled"]
+[connection signal="toggled" from="Node/Music_Button" to="Node/Music_Button" method="_on_toggled"]
+[connection signal="pressed" from="Node/Language_Button" to="Node/Language_Button" method="_on_pressed"]
